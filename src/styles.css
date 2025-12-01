@@ -218,51 +218,77 @@ body {
 }
 
 /* Casillas HTML imprimibles - diseño organizado por tipo de comida */
+/* 
+ * MODIFICACIONES 30/11/2025 - Reducción ~30% para equilibrar con datos del voucher
+ * gap: 30px → 20px (espaciado entre secciones Almuerzo/Cena)
+ * padding: 15px 0 → 8px 0 (padding vertical del contenedor)
+ */
 .check-boxes-grid {
     display: flex;
-    gap: 30px;
-    padding: 15px 0;
+    gap: 20px;          /* antes: 30px */
+    padding: 8px 0;     /* antes: 15px 0 */
     flex-wrap: wrap;
 }
 
+/* 
+ * gap: 8px → 4px (espaciado vertical entre título y casillas)
+ */
 .meal-section {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 4px;       /* antes: 8px */
 }
 
+/* 
+ * font-size: 15px → 10px (título "Almuerzo"/"Cena")
+ * margin-bottom: 5px → 2px
+ */
 .meal-title {
-    font-size: 15px;
+    font-size: 10px;        /* antes: 15px */
     font-weight: bold;
     text-align: center;
-    margin-bottom: 5px;
+    margin-bottom: 2px;     /* antes: 5px */
     text-decoration: underline;
 }
 
+/* 
+ * gap: 12px → 8px (espaciado horizontal entre días)
+ */
 .days-grid {
     display: flex;
-    gap: 12px;
+    gap: 8px;       /* antes: 12px */
     align-items: flex-end;
 }
 
+/* 
+ * gap: 5px → 3px (espacio entre etiqueta "Día X" y casilla)
+ */
 .day-box {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5px;
+    gap: 3px;       /* antes: 5px */
 }
 
+/* 
+ * font-size: 12px → 8px (etiqueta "Día 1", "Día 2", etc.)
+ */
 .day-label {
-    font-size: 12px;
+    font-size: 8px;     /* antes: 12px */
     font-weight: 600;
     white-space: nowrap;
 }
 
+/* 
+ * width/height: 20px → 14px (tamaño de casilla)
+ * border: 2px → 1px (grosor del borde)
+ * border-radius: 3px → 2px
+ */
 .checkbox {
-    width: 20px;
-    height: 20px;
-    border: 2px solid #333;
-    border-radius: 3px;
+    width: 14px;            /* antes: 20px */
+    height: 14px;           /* antes: 20px */
+    border: 1px solid #333; /* antes: 2px */
+    border-radius: 2px;     /* antes: 3px */
     background-color: white;
     flex-shrink: 0;
 }
@@ -289,6 +315,14 @@ body {
 }
 
 /* === IMPRESIÓN === */
+/* 
+ * MODIFICACIONES 30/11/2025 - Optimización para 4 vouchers por página A4
+ * .container margin: 10mm → 5mm (permite más vouchers por página)
+ * .checkbox: width/height 24px → 16px, border 3px → 1.5px
+ * .day-label: font-size 14px → 9px
+ * .meal-title: font-size 16px → 11px
+ * .check-box span: font-size 16px → 11px
+ */
 @media print {
     .header-container {
         display: none;
@@ -300,26 +334,26 @@ body {
     
     .container {
         page-break-inside: avoid;
-        margin: 10mm;
+        margin: 5mm;        /* antes: 10mm */
         box-shadow: none;
     }
     
-    /* Hacer las casillas más grandes en impresión */
+    /* Ajustar casillas para impresión - tamaño reducido */
     .checkbox {
-        width: 24px;
-        height: 24px;
-        border: 3px solid #000;
+        width: 16px;            /* antes: 24px */
+        height: 16px;           /* antes: 24px */
+        border: 1.5px solid #000; /* antes: 3px */
     }
     
     .day-label {
-        font-size: 14px;
+        font-size: 9px;     /* antes: 14px */
     }
     
     .meal-title {
-        font-size: 16px;
+        font-size: 11px;    /* antes: 16px */
     }
     
     .check-box span {
-        font-size: 16px;
+        font-size: 11px;    /* antes: 16px */
     }
 }
